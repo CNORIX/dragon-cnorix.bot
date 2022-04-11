@@ -1,0 +1,5 @@
+{
+	"appEngine": "", // If you publishing a game, type here you game engine name //
+					 // If you publishing a app, type here you programming language in which the program is written here. //
+	"appDeveloper": "" // Your Company Name Here //
+}

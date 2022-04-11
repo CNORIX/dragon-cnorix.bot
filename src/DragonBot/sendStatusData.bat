@@ -1,0 +1,2 @@
+node status.js
+pause

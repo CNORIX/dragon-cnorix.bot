@@ -1,7 +1,12 @@
 import requests
 import asyncio
 
-url = "https://discord.com/api/webhooks/942441163493896262/5el6z0brswx99Rp2x3cVr745Eeq-fN3HiPVDKYmhXfxD4hdVZHc1Vtx0j952_RaG_iih"
+url = "webhook_url" # HAHAHHA, I JOINED TO OLD AND UNACTIVE DISCORD SERVER AND I FIND MY WEBHOOK LINK WITH THIS WORDS:
+
+# 🦦 Hey, this webhook's URL was found here: https://github.com/DragonFire1230/dragonfire-source-code-archive/blob/00c72e06f15b63803a5558210af3f965fb3b6118/src/WebHookSpammer.py
+# Be more careful in the future, and make sure to not accidentally upload your webhook's URL publicly!
+
+# THIS WAS VERY FUNNY :)))
 
 while True:
     msg = input('Msg> ')

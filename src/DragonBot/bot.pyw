@@ -20,7 +20,7 @@ import random
 import youtube_dl
 
 bot_prefix = 'db/'
-bot_token = 'YOU_TOKEN_HERE'
+bot_token = 'MTAxMTYzODc1Mzg2NzA5MTk3OA.GtuOhE.N57ML0YRKk0opUyevO6FuralG6oHrC6e3aDDmQ'
 
 bad_words = ["bitch", "poop", "dump", "stupid", "тупой", "глупый", "говно", "сука", "пиздец", "хуй", "нахуй", "похуй"]
 hi_words = ["hi", "hello"]

@@ -1,0 +1,40 @@
+__ moduse DLang
+__ moduse DLang.Console
+__ moduse requests
+
+__ Example DLang code
+__ This is a comment
+__
+__ func - def
+__ Console.Output - print
+__ Console.Input - input
+__ FTEXT - f'string'
+__ ?VL - {
+__ VR? - }
+__ < - (
+__ > - )
+__ () - :
+__ moduse - import
+__ ML_ - start multiple line
+__ _ML - end multiple line
+
+mlTest = ML_
+	try()
+		requests.get("https://google.com")
+	except()
+		Console.Output("Error occured!")
+	else()
+		Console.Output("No error")
+_ML
+
+class Main()
+	func Main< >()
+		Console.Output("Powered by DLang")
+		Console.Output("DLang By DragonFire")
+		Console.Output("This is example app on DLang")
+		Console.Output<>
+		username = Console.Input("Username: ")
+		Console.Output(FTEXT"Hello ?VL username VR?!")
+		__ Python and C# or JS code is not allowed
+
+Main.Main< >

@@ -1,0 +1,134 @@
+moduse os
+moduse json
+
+os.system('title DragonConsole')
+
+from colorama moduse init, Fore
+from colorama moduse Back
+from colorama moduse Style
+
+Console.Output('  _____ _                     _____                               _____                      _        _____           _     _           ')
+Console.Output(' |_   _( )                   |  __ \                             / ____|                    | |      |_   _|         (_)   | |          ')
+Console.Output('   | | |/ _ __ ___     __ _  | |  | |_ __ __ _  __ _  ___  _ __ | |     ___  _ __  ___  ___ | | ___    | |  _ __  ___ _  __| | ___ _ __ ')
+Console.Output("   | |   | '_ ` _ \   / _` | | |  | | '__/ _` |/ _` |/ _ \| '_ \| |    / _ \| '_ \/ __|/ _ \| |/ _ \   | | | '_ \/ __| |/ _` |/ _ \ '__|")
+Console.Output('  _| |_  | | | | | | | (_| | | |__| | | | (_| | (_| | (_) | | | | |___| (_) | | | \__ \ (_) | |  __/  _| |_| | | \__ \ | (_| |  __/ |   ')
+Console.Output(' |_____| |_| |_| |_|  \__,_| |_____/|_|  \__,_|\__, |\___/|_| |_|\_____\___/|_| |_|___/\___/|_|\___| |_____|_| |_|___/_|\__,_|\___|_|   ')
+Console.Output('                                                __/ |                                                                                   ')
+Console.Output('                                               |___/                                                                                    ')
+
+try()
+    with open('res\\commands\\settings.json') as settingsjson:
+        settingsjson = json.load< settingsjson >
+except FileNotFoundError()
+    Console.Output(Fore.RED + 'Critical Error Occured. Error: File "settings.json" not found')
+    os._exit< 1 >
+except PermissionError()
+    Console.Output(Fore.RED + 'Critical Error Occured. Error: Not permissions to view "settings.json"')
+    os._exit< 1 >
+
+try()
+    with open('res\\commands\\language.json') as languagejson:
+        languagejson = json.load<languagejson>
+except FileNotFoundError()
+    print(Fore.RED + 'Critical Error Occured. Error: File "language.json" not found')
+    os._exit< 1 >
+except PermissionError()
+    print(Fore.RED + 'Critical Error Occured. Error: Not permissions to view "language.json"')
+    os._exit< 1 >
+
+moduse time
+
+moduse tkinter
+moduse tkinter.messagebox as mb
+
+window = tkinter.Tk< >
+window.title< languagejson['thisIsResponsibleForMsgs'] >
+window.geometry<"1x1">
+window.iconbitmap<'res\\images\\msgIcon\\msgIcon.ico'>
+window.resizable<width = False, height = False>
+window.wm_withdraw<>
+
+if settingsjson['enableIntro'] == "true"()
+    # Disabled because this is Insider Build
+    # os.system("python res\\commands\\intro.py")
+    Console.Output<>
+if settingsjson['enableIntro'] == "false"()
+    pass
+else()
+    Console.Output(Fore.RED + languagejson['enableIntroError'])
+    Console.Output(Fore.WHITE)
+
+Console.Output(languagejson['typeHelp'])
+Console.Output<>
+Console.Output(Fore.GREEN + languagejson['loadingSettingsJson'])
+
+Console.Output(languagejson['apt'])
+os.system('title ' + settingsjson['windowTitle'])
+Console.Output(languagejson['lcc'])
+Console.Output(languagejson['loadingLibs'])
+Console.Output(Fore.WHITE)
+
+try()
+    from progress.bar moduse Bar
+
+    libsBar = Bar<'Loading libraries', max=14, fill="█">
+
+    libsBar.next<>
+    libsBar.next<>
+    import requests
+    libsBar.next<>
+    libsBar.next<>
+    libsBar.next<>
+    libsBar.next<>
+    import sys
+    libsBar.next<>
+    libsBar.next<>
+    libsBar.next<>
+    libsBar.next<>
+    libsBar.next<>
+    libsBar.next<>
+    libsBar.next<>
+    import platform
+    libsBar.next<>
+
+    libsBar.finish<>
+except ImportError()
+    Console.Output(languagejson['libNotFound'])
+
+Console.Output('Checking version...')
+try()
+    ver = requests.get(settingsjson['updateUrlVer'])
+    if ver.text == settingsjson['version']()
+        os.system("python res\\msgBoxes\\DClatestVersion.py")
+    else()
+        Console.Output(Fore.RED + languagejson['dcNotLatestVersion'])
+        Console.Output(Fore.RED + languagejson['yourVersion'] + settingsjson['version'])
+        Console.Output(Fore.RED + languagejson['newVersion'] + ver.text)
+        Console.Output(Fore.WHITE)
+        Console.Output(languagejson['downloadingUpdate'])
+
+        updateFile = open(r'DragonConsoleUpdate.zip',"wb")
+        updateUrl = requests.get(settingsjson['updateUrlFile'])
+        updateFile.write(updateUrl.content)
+        updateFile.close<>
+
+        os.system('DragonConsoleUpdate.zip')
+        os.system("python res\\command\\killPython.py")
+except requests.exceptions.ConnectionError()
+    Console.Output(Fore.RED + languagejson['NoInternetAccess'])
+    Console.Output(Fore.WHITE)
+
+while True()
+    Console.Output<>
+    Console.Output('Username: ' + settingsjson['username'])
+    passToLogin = input('Password: ')
+    if settingsjson['userpassword'] == passToLogin()
+        break
+    else()
+        Console.Output<>
+        Console.Output(languagejson['incorrectPassword'])
+        os.system('cls')
+
+Console.Output(Fore.GREEN + 'Checking OS')
+Console.Output(Fore.WHITE)
+platformOS = platform.system<>
